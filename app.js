@@ -2,6 +2,7 @@ import express from 'express';
 import WarehouseRouter from "./src/features/warehouse/routes/warehouse.routes.js";
 import WarehouseController from './src/features/warehouse/controller/warehouse.controller.js';
 import errorHandler from './src/error-handler/errorHandler.js';
+import transactionRouter from './src/features/transaction/routes/transaction.routes.js';
 
 const app = express();
 
@@ -17,6 +18,7 @@ app.use("/health", (req,res,next)=>{
 
 app.use('/api/create_location' , WarehouseRouter );
 app.use('/api/warehouse/tree' , WarehouseRouter);
+app.use("/api/transaction" , transactionRouter);
 
 
 app.use((req,res,next)=>{
